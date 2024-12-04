@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Add CSS styling for the login page */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #004d4d, #001f33); /* Teal to dark blue gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column; /* Allow vertical stacking */
+        }
+        .login-container {
+            background-color: #fff8e1; /* Light goldish background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            text-align: center;
+            color: black; /* Black text for contrast */
+        }
+        .input-field {
+            margin: 10px 0;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffd700; /* Gold */
+            color: black; /* Black text for contrast */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #e6be00; /* Darker gold on hover */
+        }
+    </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com"> <!-- Replace with your Client ID -->
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="g_id_signin" data-type="standard"></div>
+        <div class="input-field">
+            <input type="email" id="gmail" placeholder="Enter your Gmail" required />
+        </div>
+        <div class="input-field">
+            <input type="text" id="username" placeholder="Enter a new username" required />
+        </div>
+        <div class="input-field">
+            <input type="password" id="password" placeholder="Create your password" required />
+        </div>
+        <button class="button" onclick="createAccount()">Create Account</button>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Check if user data exists in localStorage
+        window.onload = function() {
+            const savedEmail = localStorage.getItem('gmail');
+            const savedUsername = localStorage.getItem('username');
+            if (savedEmail && savedUsername) {
+                // Redirect to home.html if user data exists
+                window.location.href = 'home.html';
+            } else {
+                // Load the saved Gmail from localStorage if it exists
+                const savedEmail = localStorage.getItem('gmail');
+                if (savedEmail) {
+                    document.getElementById('gmail').value = savedEmail;
+                }
+            }
+        };
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+        }
+
+        function createAccount() {
+            const gmail = document.getElementById('gmail').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            console.log('Gmail:', gmail);
+            console.log('Username:', username);
+            console.log('Password:', password);
+            
+            // Store user data in localStorage
+            localStorage.setItem('gmail', gmail); // Store Gmail
+            localStorage.setItem('username', username);
+            localStorage.setItem('email', gmail); // Store the Gmail as the email
+            
+            // Generate the referral link
+            const referralLink = `https://example.com?ref=${username}`;
+            localStorage.setItem('referral', referralLink); // Store the referral link
+
+            // Redirect to home.html after account creation
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards Page</title>
+    <style>
+        /* Add CSS styling for the rewards page */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #004d4d, #001f33); /* Teal to dark blue gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .rewards-container {
+            background-color: #fff8e1; /* Light goldish background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: black; /* Black text for contrast */
+        }
+        .reward {
+            margin: 10px 0;
+            color: black; /* Black text for contrast */
+        }
+        .button {
+            padding: 10px;
+            background-color: #ffd700; /* Gold */
+            color: black; /* Black text for contrast */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #e6be00; /* Darker gold on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Rewards Page -->
+    <div class="rewards-container">
+        <h2>Your Rewards</h2>
+        <div class="reward">
+            <strong>Total Rewards Earned:</strong> <span id="total-rewards">0</span>
+        </div>
+        <div class="reward">
+            <strong>Referral Rewards:</strong> <span id="referral-rewards">0</span>
+        </div>
+        <div class="reward">
+            <strong>Ad Viewing Rewards:</strong> <span id="ad-rewards">0</span>
+        </div>
+        <button class="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        // Function to go back to the home page
+        function goBack() {
+            window.location.href = 'home.html'; // Redirect to home page
+        }
+
+        // Function to load rewards data (this is just a placeholder)
+        function loadRewardsData() {
+            // In a real application, you would fetch this data from your backend
+            const totalRewards = localStorage.getItem('totalRewards') || 0;
+            const referralRewards = localStorage.getItem('referralRewards') || 0;
+            const adRewards = localStorage.getItem('adRewards') || 0;
+
+            document.getElementById('total-rewards').innerText = totalRewards;
+            document.getElementById('referral-rewards').innerText = referralRewards;
+            document.getElementById('ad-rewards').innerText = adRewards;
+        }
+
+        // Load rewards data when the page loads
+        window.onload = loadRewardsData;
+    </script>
+</body>
+</html> 

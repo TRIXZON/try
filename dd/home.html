@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add CSS styling for the home page */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #004d4d, #001f33); /* Teal to dark blue gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .home-container {
+            background-color: #fff8e1; /* Light goldish background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: black; /* Black text for contrast */
+        }
+        .option {
+            margin: 10px 0;
+        }
+        .button {
+            padding: 10px;
+            background-color: #ffd700; /* Gold */
+            color: black; /* Black text for contrast */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .button:hover {
+            background-color: #e6be00; /* Darker gold on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Home Page Content -->
+    <div class="home-container">
+        <h2>Welcome to the Link Hub</h2>
+        <div class="option">
+            <button class="button" onclick="openAdding()">Add People</button>
+        </div>
+        <div class="option">
+            <button class="button" onclick="earnByViewingAds()">Earn by Viewing Ads</button>
+        </div>
+        <div class="option">
+            <button class="profile-button" onclick="openProfile()">
+                <i class="fas fa-user"></i>
+            </button>
+        </div>
+        <div class="option">
+            <button class="rewards-button" onclick="openRewards()">
+                <i class="fas fa-trophy"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function earnByAdding() {
+            alert("You can earn by adding people!");
+        }
+
+        function earnByViewingAds() {
+            alert("You can earn by viewing ads!");
+        }
+
+        function openProfile() {
+            window.location.href = 'profile.html';
+        }
+
+        function openRewards() {
+            window.location.href = 'reward.html';
+        }
+
+        function openAdding() {
+            window.location.href = 'adding.html'; // Redirect to adding page
+        }
+    </script>
+</body>
+</html> 

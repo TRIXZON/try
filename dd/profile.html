@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        /* Add CSS styling for the profile page */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #004d4d, #001f33); /* Teal to dark blue gradient */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .profile-container {
+            background-color: #fff8e1; /* Light goldish background */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: black; /* Black text for contrast */
+        }
+        .info {
+            margin: 10px 0;
+            color: black; /* Black text for contrast */
+        }
+        .button {
+            padding: 10px;
+            background-color: #ffd700; /* Gold */
+            color: black; /* Black text for contrast */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin: 5px 0; /* Add some margin for spacing */
+        }
+        .button:hover {
+            background-color: #e6be00; /* Darker gold on hover */
+        }
+        .icon-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: #4caf50;
+            font-size: 24px;
+            margin: 5px 0; /* Add some margin for spacing */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Profile Page -->
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+        <div class="info">
+            <strong>Username:</strong> <span id="profile-username"></span>
+        </div>
+        <div class="info">
+            <strong>Email:</strong> <span id="profile-email"></span>
+        </div>
+        <div class="info">
+            <strong>Referral Link:</strong> <span id="profile-referral"></span>
+        </div>
+        <button class="button" onclick="goBack()">Go Back to Login</button>
+        <div class="option">
+            <button class="icon-button" onclick="goHome()">
+                <i class="fas fa-home"></i> <!-- Home Icon -->
+            </button>
+        </div>
+        <div class="option">
+            <button class="icon-button" onclick="openRewards()">
+                <i class="fas fa-trophy"></i> <!-- Rewards Icon -->
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Function to go back to the login page
+        function goBack() {
+            window.location.href = 'index.html'; // Redirect to login page
+        }
+
+        // Function to go to the home page
+        function goHome() {
+            window.location.href = 'home.html'; // Redirect to home page
+        }
+
+        // Function to open the rewards page
+        function openRewards() {
+            window.location.href = 'reward.html'; // Redirect to rewards page
+        }
+
+        // Function to load user data
+        function loadUserData() {
+            const username = localStorage.getItem('username');
+            const email = localStorage.getItem('email');
+            const referral = localStorage.getItem('referral');
+
+            // Check if data exists and update the profile fields
+            document.getElementById('profile-username').innerText = username || 'Not set';
+            document.getElementById('profile-email').innerText = email || 'Not set';
+            document.getElementById('profile-referral').innerText = referral || 'Not set';
+        }
+
+        // Load user data when the page loads
+        window.onload = loadUserData;
+    </script>
+</body>
+</html> 

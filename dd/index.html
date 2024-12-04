@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Hub - Splash Screen</title>
+    <style>
+        /* Full-screen splash screen styles */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #004d4d, #001f33); /* Teal to dark blue gradient */
+            color: white; /* White text for contrast */
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .splash-text {
+            font-size: 48px; /* Large text size */
+            font-weight: bold; /* Bold text */
+            position: relative; /* Position for animation */
+            animation: slideIn 3s forwards; /* Animation for sliding in */
+        }
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%); /* Start off-screen to the left */
+            }
+            100% {
+                transform: translateX(0); /* End at the original position */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-text">Link Hub</div>
+
+    <script>
+        // Redirect to the login page after 3 seconds
+        setTimeout(function() {
+            window.location.href = 'login.html'; // Redirect to login page
+        }, 3000); // 3000 milliseconds = 3 seconds
+    </script>
+</body>
+</html> 
